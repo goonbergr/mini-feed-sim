@@ -57,7 +57,7 @@ main {
 
 .post-feed .content,
 .user-name,
-.post {
+.post-id {
   list-style-type: none;
   background-color: #7cc2ff;
   padding: 10px 5px;
@@ -65,7 +65,7 @@ main {
   margin: 10px 5px;
 }
 
-.post {
+.post-id {
   background-color: rgb(255, 41, 41);
 }
 

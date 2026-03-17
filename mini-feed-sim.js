@@ -1,6 +1,6 @@
 let id = 0;
 feed = [];
-let createPost = (usrN, content) => {
+let createPost = (userN, content) => {
   id++;
   let post = {
     id: id,

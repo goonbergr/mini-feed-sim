@@ -3,20 +3,18 @@ let userN = document.querySelector(".userName");
 let button = document.querySelector("button");
 let ul = document.querySelector(".post-feed > ul");
 
-let user = userN.value.trim();
-let content = input.value.trim();
-
-let addContentsToPost = (user, input) => {
-  if (input !== "") {
-    createPost(user, input);
-    console.log(id);
+let addContentsToPost = (userN, input) => {
+  let user = userN.value.trim();
+  let content = input.value.trim();
+  if (input !== "" || user !== "") {
     // create row container
     let rowContainer = document.createElement("div");
     rowContainer.classList.add("row-container");
     // give span elements id value
     let idSpan = document.createElement("span");
     idSpan.textContent = id;
-    idSpan.classList.add("post");
+    idSpan.classList.add("post-id");
+    // console.log(idSpan);
 
     // give li elements content value of input
     let content = document.createElement("li");
@@ -30,11 +28,12 @@ let addContentsToPost = (user, input) => {
     rowContainer.appendChild(idSpan);
     rowContainer.appendChild(userNameSpan);
     rowContainer.appendChild(content);
-    console.log(content);
+    // console.log(content);
     ul.appendChild(rowContainer);
-    console.log(user);
+    // console.log(user);
     input.value = "";
     user.value = "";
+    console.log(createPost(user, input));
   }
 };
 
