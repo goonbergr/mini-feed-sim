@@ -57,7 +57,8 @@ main {
 
 .post-feed .content,
 .user-name,
-.post-id {
+.post-id,
+.like-btn {
   list-style-type: none;
   background-color: #7cc2ff;
   padding: 10px 5px;

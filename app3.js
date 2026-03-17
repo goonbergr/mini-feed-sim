@@ -20,6 +20,7 @@ const inputField = document.querySelector(".post-text");
 const userNameField = document.querySelector(".userName");
 const postButton = document.querySelector("button");
 const feedList = document.querySelector(".post-feed > ul");
+// const likesValue = document.querySelector(".likes");
 
 // 3. THE RENDERER (Connecting Logic to UI)
 const renderFeed = () => {
@@ -35,6 +36,7 @@ const renderFeed = () => {
             <span class="post-id">${post.id}</span>
             <span class="user-name">${post.userN}</span>
             <li class="content">${post.content}</li>
+            <button class="like-btn" data-id="${post.id}">👍 ${post.likes}</button>
         `;
 
     feedList.appendChild(rowContainer);
@@ -58,5 +60,21 @@ postButton.addEventListener("click", (e) => {
     // Step C: Clear the inputs
     userNameField.value = "";
     inputField.value = "";
+  }
+});
+
+feedList.addEventListener("click", (e) => {
+  // Check if what was clicked is actually a like button
+  if (e.target.classList.contains("like-btn")) {
+    // Get the ID we stored in the data attribute
+    const postId = parseInt(e.target.getAttribute("data-id"));
+
+    // Find the post in our 'feed' array
+    const post = feed.find((p) => p.id === postId);
+
+    if (post) {
+      post.likes++; // Logic: Update the data
+      renderFeed(); // UI: Refresh the view
+    }
   }
 });
