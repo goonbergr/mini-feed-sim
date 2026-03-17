@@ -1,14 +1,14 @@
-let input = document.querySelector("input");
+let input = document.querySelector(".post-text");
+let userN = document.querySelector(".userName");
 let button = document.querySelector("button");
 let ul = document.querySelector(".post-feed > ul");
 
-button.addEventListener("click", (e) => {
-  e.preventDefault();
+const content = input.value.trim();
+const user = userN.value.trim();
 
-  const content = input.value.trim();
-
+let addContentsToPost = (user, content) => {
   if (content !== "") {
-    createPost("userN", content);
+    createPost(user, content);
     console.log(id);
     // create row container
     let rowContainer = document.createElement("div");
@@ -19,11 +19,22 @@ button.addEventListener("click", (e) => {
     // give span elements id value
     let idSpan = document.createElement("span");
     idSpan.textContent = id;
-    // give span element userN value
     idSpan.classList.add("post");
+    // give span element userN value
+    let userNameSpan = document.createElement("span");
+
+    userNameSpan.classList.add("user-name");
     rowContainer.appendChild(idSpan);
+    rowContainer.appendChild(userNameSpan);
     rowContainer.appendChild(li);
+    // console.log(li);
     ul.appendChild(rowContainer);
     input.value = "";
+    console.log(user);
   }
+};
+
+button.addEventListener("click", (e) => {
+  e.preventDefault();
+  addContentsToPost(userN, content);
 });
