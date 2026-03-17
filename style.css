@@ -55,7 +55,7 @@ main {
   margin: 5px 0;
 }
 
-.post-feed li,
+.post-feed .content,
 .user-name,
 .post {
   list-style-type: none;

@@ -3,38 +3,42 @@ let userN = document.querySelector(".userName");
 let button = document.querySelector("button");
 let ul = document.querySelector(".post-feed > ul");
 
-const content = input.value.trim();
-const user = userN.value.trim();
+let user = userN.value.trim();
+let content = input.value.trim();
 
-let addContentsToPost = (user, content) => {
-  if (content !== "") {
-    createPost(user, content);
+let addContentsToPost = (user, input) => {
+  if (input !== "") {
+    createPost(user, input);
     console.log(id);
     // create row container
     let rowContainer = document.createElement("div");
     rowContainer.classList.add("row-container");
-    // give li elements content value of input
-    let li = document.createElement("li");
-    li.textContent = `${content}`;
     // give span elements id value
     let idSpan = document.createElement("span");
     idSpan.textContent = id;
     idSpan.classList.add("post");
+
+    // give li elements content value of input
+    let content = document.createElement("li");
+    content.textContent = input.value;
+    content.classList.add("content");
     // give span element userN value
     let userNameSpan = document.createElement("span");
-
+    userNameSpan.textContent = user.value;
     userNameSpan.classList.add("user-name");
+
     rowContainer.appendChild(idSpan);
     rowContainer.appendChild(userNameSpan);
-    rowContainer.appendChild(li);
-    // console.log(li);
+    rowContainer.appendChild(content);
+    console.log(content);
     ul.appendChild(rowContainer);
-    input.value = "";
     console.log(user);
+    input.value = "";
+    user.value = "";
   }
 };
 
 button.addEventListener("click", (e) => {
   e.preventDefault();
-  addContentsToPost(userN, content);
+  addContentsToPost(userN, input);
 });

@@ -2,10 +2,10 @@ let id = 0;
 feed = [];
 let createPost = (usrN, content) => {
   id++;
-  post = {
+  let post = {
     id: id,
-    userN: [],
-    content: [],
+    userN: userN,
+    content: content,
     likes: 0,
     timestamp: Date.now(),
   };
